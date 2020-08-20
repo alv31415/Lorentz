@@ -13,6 +13,7 @@ public class MyLorenz {
     double z;
     Color colour;
     boolean toSave;
+    boolean toRainbowPen;
 
     int sigma = 10;
     double beta = 8.0/3.0;
@@ -27,14 +28,17 @@ public class MyLorenz {
      * @param y initial y coordinate
      * @param z initial z coordinate
      * @param colour colour of curve
+     * @param toSave whether the coordinates should be saved
+     * @param toRainbowPen whether the colour of the curve should be "rainbow"
      */
 
-    public MyLorenz(double x, double y, double z, Color colour, boolean toSave) {
+    public MyLorenz(double x, double y, double z, Color colour, boolean toSave, boolean toRainbowPen) {
         this.x = x;
         this.y = y;
         this.z = z;
         this.colour = colour;
         this.toSave = toSave;
+        this.toRainbowPen = toRainbowPen;
     }
 
     /**
@@ -111,6 +115,18 @@ public class MyLorenz {
     }
 
     /**
+     * Special method if the colour is green
+     * @return a nice colour gradient that alternates between green and yellow
+     */
+    public Color changeGreen(Color colour, int factor) {
+        int red = (int) ((colour.getRed() + factor*0.8) % 255);
+        int green = colour.getGreen() > factor ? (int) ((colour.getGreen() - factor * 0.8) % 255) : colour.getGreen();
+        int blue = colour.getBlue() % 64;
+
+        return new Color(red,green,blue);
+    }
+
+    /**
      * Draws the Lorenz curve represented by a MyLorenz instance
      * @throws IOException if there is a problem saving the coordinates of the points in the Lorenz curve
      */
@@ -120,7 +136,12 @@ public class MyLorenz {
         JSONObject jsonCoords = new JSONObject(); // used to store the coordinates of the curve
 
         for (int i = 0; i < 1000001; i++) {
-            StdDraw.setPenColor(changeHue(colour,i));
+            if (colour == Color.GREEN)
+                StdDraw.setPenColor(changeGreen(colour,i));
+            else if (toRainbowPen)
+                StdDraw.setPenColor(changeHue(colour,i));
+            else
+                StdDraw.setPenColor(colour);
             StdDraw.point(x,z);
             if (toSave) {
                 jsonCoords.put(i, createPoint(x, y, z));
@@ -178,7 +199,7 @@ public class MyLorenz {
     }
 
     public static void main(String[] args) throws IOException {
-        MyLorenz lorenz = new MyLorenz(0.0,20.0,12.0,Color.RED,false);
+        MyLorenz lorenz = new MyLorenz(0.0,20.0,12.0,Color.RED,false,true);
         lorenz.drawCurve();
     }
 
