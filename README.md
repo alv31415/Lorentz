@@ -1,7 +1,14 @@
-# Lorentz
+# Lorentz :butterfly:
 
 This is a project that uses Java to plot the famous Lorenz Attractor.
 Ever since I read Ian Stewart's "Does God Play Dice?", the Lorenz Attractor has fascinated me, but it seemed extremely hard to code it up. However, I was inspired by Code Train's <a href = "https://www.youtube.com/watch?v=f0lkz2gSsIk"> "Coding Challenge #12: The Lorenz Attractor in Processing"</a>.
+
+## Table of Contents
+
+* [Description](#description)
+* [Features](#features)
+* [Colour of Attractor](#colour-of-attractor)
+* [Saving Coordinates](#saving-coordinates)
 
 ## Description
 
@@ -25,7 +32,7 @@ There are 2 key distinguishing features in this program:
 * the colour of the attractor
 * the capacity to save the coordinates
 
-### Colour of Attractor
+## Colour of Attractor
 
 The attractor is drawn using a "rainbow" effect. This is done by converting the colour from RGB to HSB (hue, saturation and brightness). The hue is then changed slightly, producing a new colour. We then turn this colour back into its RGB form. This is done by the function *changeHue*:
 
@@ -57,7 +64,7 @@ These are the results:
   <img src="https://github.com/alv31415/Lorentz/blob/master/Lorenz%20Attractor/Screenshot%202020-08-18%20at%2020.34.47.png"/>
 </p>
 
-### Saving Coordinates
+## Saving Coordinates
 
 With each iteration, the calculated coordinates are stored in a JSONArray, which is in turn stored in a JSONObject and ultimately saved in a json file. We ensure that old files are not overridden, and provide methods to generate new file names. Coordinates created during the program's current execution are all saved to the same file. The option to save coordinates can be enabled within the class constructor. I thought that saving the coordinates could be useful, as it could allow programs in other languages to plot the attractor without necessarily having to undertake all the calculations.
 
