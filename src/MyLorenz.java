@@ -1,10 +1,13 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.*;
 
 public class MyLorenz {
 
@@ -198,9 +201,36 @@ public class MyLorenz {
        }
     }
 
+    public void drawCurveFromJSON(String jsonFile) {
+        JSONParser parser = new JSONParser();
+        TreeMap<Integer,float[]> coordinates = new TreeMap<>();
+
+        try {
+            Object obj = parser.parse(new FileReader(jsonFile));
+            JSONObject myFile = (JSONObject) obj;
+            for (Object key : myFile.keySet()) {
+                int intKey = Integer.parseInt((String) key);
+                float[] coords = (float[]) myFile.get(key);
+                coordinates.put(intKey,coords);
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        for(Map.Entry<Integer,float[]> entry : coordinates.entrySet()) {
+            int key = entry.getKey();
+            float[] value = entry.getValue();
+            System.out.println(key + " => " + Arrays.toString(value));
+        }
+
+    }
+    
+
     public static void main(String[] args) throws IOException {
-        MyLorenz lorenz = new MyLorenz(0.0,20.0,12.0,Color.RED,false,true);
-        lorenz.drawCurve();
+        MyLorenz lorenz = new MyLorenz(0.0,20.0,12.0,Color.RED,true,true);
+        //lorenz.drawCurve();
+        lorenz.drawCurveFromJSON("lorenz-coordinates.json");
     }
 
 }
