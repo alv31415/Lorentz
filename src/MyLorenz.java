@@ -301,9 +301,9 @@ public class MyLorenz {
 
 
     public static void main(String[] args) {
-        MyLorenz lorenz = new MyLorenz(0.0,20.0,12.0,Color.RED,false,true);
-        //lorenz.drawCurve();
-        lorenz.drawCurveFromJSON(fileToLoad);
+        MyLorenz lorenz = new MyLorenz(0.0,20.0,12.0,Color.BLUE,false,false);
+        lorenz.drawCurve();
+        //lorenz.drawCurveFromJSON(fileToLoad);
     }
 
 }
