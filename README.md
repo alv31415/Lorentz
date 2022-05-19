@@ -14,11 +14,23 @@ Ever since I read Ian Stewart's "Does God Play Dice?", the Lorenz Attractor has 
 
 The Lorenz Attractor is a popular mathematical figure developed by Edward Lorenz when attempting to solve a series of ODEs modelling atmospheric convection:
 
-<p align="center"> <a href="https://www.codecogs.com/eqnedit.php?latex=\\&space;\frac{dx}{dt}&space;=&space;\sigma(y-x)&space;\\&space;\\&space;\frac{dy}{dt}&space;=&space;x(\rho&space;-&space;z)&space;-&space;y&space;\\&space;\\&space;\frac{dz}{dt}&space;=&space;xy&space;-&space;\beta&space;z" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\\&space;\frac{dx}{dt}&space;=&space;\sigma(y-x)&space;\\&space;\\&space;\frac{dy}{dt}&space;=&space;x(\rho&space;-&space;z)&space;-&space;y&space;\\&space;\\&space;\frac{dz}{dt}&space;=&space;xy&space;-&space;\beta&space;z" title="\\ \frac{dx}{dt} = \sigma(y-x) \\ \\ \frac{dy}{dt} = x(\rho - z) - y \\ \\ \frac{dz}{dt} = xy - \beta z" /></a></p>
+$$
+\begin{align*}
+\frac{dx}{dt} &= \sigma(y-x) \\
+\frac{dy}{dt} &= x(\rho - z) - y \\
+\frac{dz}{dt} &= xy - \beta z \\
+\end{align*}
+$$
 
 where the standard values for the constants are:
 
-<p align = "center"><a href="https://www.codecogs.com/eqnedit.php?latex=\\&space;\sigma&space;=&space;10&space;\\&space;\\&space;\rho&space;=&space;28&space;\\&space;\\&space;\beta&space;=&space;\frac{8}{3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\\&space;\sigma&space;=&space;10&space;\\&space;\\&space;\rho&space;=&space;28&space;\\&space;\\&space;\beta&space;=&space;\frac{8}{3}" title="\\ \sigma = 10 \\ \\ \rho = 28 \\ \\ \beta = \frac{8}{3}" /></a></p>
+$$
+\begin{align*}
+\sigma &= 10 \\
+\rho &= 28 \\
+\beta &= \frac{8}{3}
+\end{align*}
+$$
 
 which lead to the following image:
 
