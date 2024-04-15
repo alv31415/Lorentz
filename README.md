@@ -1,7 +1,7 @@
 # Lorentz :butterfly:
 
 This is a project that uses Java to plot the famous Lorenz Attractor.
-Ever since I read Ian Stewart's "Does God Play Dice?", the Lorenz Attractor has fascinated me, but it seemed extremely hard to code it up. However, I was inspired by Code Train's <a href = "https://www.youtube.com/watch?v=f0lkz2gSsIk"> "Coding Challenge #12: The Lorenz Attractor in Processing"</a>.
+Ever since I read Ian Stewart's "Does God Play Dice?", the Lorenz Attractor has fascinated me. I was inspired by Code Train's <a href = "https://www.youtube.com/watch?v=f0lkz2gSsIk"> "Coding Challenge #12: The Lorenz Attractor in Processing"</a>.
 
 ## Table of Contents
 
